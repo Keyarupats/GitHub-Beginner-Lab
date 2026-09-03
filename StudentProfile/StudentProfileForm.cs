@@ -9,7 +9,7 @@ namespace StudentProfile
 
         private void button1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Hello, John Patrick C. Malapitan", "Student Profile");
+            MessageBox.Show("GitHub Beginner Lab", "Student Profile");
         }
     }
 }
