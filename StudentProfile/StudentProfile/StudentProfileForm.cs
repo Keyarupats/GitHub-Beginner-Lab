@@ -9,7 +9,7 @@ namespace StudentProfile
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            MessageBox.Show("Student Profile — GitHub Beginner Lab.");
+            MessageBox.Show("Contact Number: 0927495723840");
         }
     }
 }
