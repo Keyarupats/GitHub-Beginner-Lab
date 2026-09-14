@@ -28,19 +28,47 @@
         /// </summary>
         private void InitializeComponent()
         {
+            txtSearch = new TextBox();
+            btnSearch = new Button();
             SuspendLayout();
+            // 
+            // txtSearch
+            // 
+            txtSearch.Font = new Font("Segoe UI", 12F);
+            txtSearch.Location = new Point(419, 12);
+            txtSearch.Name = "txtSearch";
+            txtSearch.Size = new Size(168, 29);
+            txtSearch.TabIndex = 0;
+            // 
+            // btnSearch
+            // 
+            btnSearch.Font = new Font("Segoe UI", 12F);
+            btnSearch.Location = new Point(593, 11);
+            btnSearch.Name = "btnSearch";
+            btnSearch.Size = new Size(89, 30);
+            btnSearch.TabIndex = 1;
+            btnSearch.Text = "Search";
+            btnSearch.UseVisualStyleBackColor = true;
+            btnSearch.Click += btnSearch_Click;
             // 
             // StudentProfileForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(513, 305);
+            BackColor = SystemColors.ActiveBorder;
+            ClientSize = new Size(694, 440);
+            Controls.Add(btnSearch);
+            Controls.Add(txtSearch);
             Name = "StudentProfileForm";
             Text = "StudentProfileForm";
             Load += Form1_Load;
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
+
+        private TextBox txtSearch;
+        private Button btnSearch;
     }
 }
