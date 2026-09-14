@@ -31,14 +31,37 @@ namespace StudentProfile
         {
             string searchInput = txtSearch.Text.Trim();
 
-            bool isFoundById = id.Contains(searchInput);
-            bool isFoundByName = name.Contains(searchInput);
+            if (string.IsNullOrEmpty(searchInput))
+            {
+                MessageBox.Show("Please enter a Student ID or Name to search.", "Input Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
-            string message = (isFoundById || isFoundByName)
-                ? "Match Found: " + searchInput
-                : "No match found for: " + searchInput;
+            // Search by Student ID
+            int index = id.IndexOf(searchInput);
 
-            MessageBox.Show(message);
+            // If not found by ID, search by Name (case-insensitive)
+            if (index == -1)
+            {
+                for (int i = 0; i < name.Count; i++)
+                {
+                    if (name[i].ToString().Equals(searchInput, StringComparison.OrdinalIgnoreCase))
+                    {
+                        index = i;
+                        break;
+                    }
+                }
+            }
+
+            // Display result based on search outcome
+            if (index != -1)
+            {
+                MessageBox.Show($"Student Found:\n\nID: {id[index]}\nName: {name[index]}", "Search Result", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("No matching student record found.", "Result Not Found", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
